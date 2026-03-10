@@ -170,12 +170,12 @@
       </div>
     </div>
     <div>
-      <form class="cf" onsubmit="handleForm(event)">
+      <form class="cf" action="https://formspree.io/f/xyknewaq" method="post">
         <div class="cf-row">
-          <div class="cf-f"><label class="cf-label">Name</label><input class="cf-input" type="text" placeholder="Your name" required/></div>
-          <div class="cf-f"><label class="cf-label">Email</label><input class="cf-input" type="email" placeholder="your@email.com" required/></div>
+          <div class="cf-f"><label class="cf-label">Name</label><input class="cf-input" type="text" name="name" placeholder="Your name" required/></div>
+          <div class="cf-f"><label class="cf-label">Email</label><input class="cf-input" type="email" name="email" placeholder="your@email.com" required/></div>
         </div>
-        <div class="cf-f"><label class="cf-label">Message</label><textarea class="cf-ta" placeholder="Tell me about your project..."></textarea></div>
+        <div class="cf-f"><label class="cf-label">Message</label><textarea class="cf-ta" name="message"  placeholder="Tell me about your project..."></textarea></div>
         <button type="submit" class="btn btn-gold" id="cfBtn">Send Message</button>
       </form>
     </div>
