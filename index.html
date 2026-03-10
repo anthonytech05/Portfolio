@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Richard Anthony — Frontend Developer</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<div id="cur"></div>
+<div id="cur-ring"></div>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <a href="#" class="nav-logo">R<span>.</span>Anthony</a>
+  <ul class="nav-menu">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Work</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="toggle-wrap">
+    <span class="toggle-label" id="themeLabel">Dark</span>
+    <button class="toggle-btn" id="themeBtn" onclick="toggleTheme()"></button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-l">
+    <div class="hero-tag">Frontend Web Developer</div>
+    <h1 class="hero-h1">Richard<br/><em>Anthony</em></h1>
+    <p class="hero-desc">Building clean, fast, and purposeful websites — trained at Cophild ICT Centre, crafting everything from pixel-perfect landing pages to fully functional web applications.</p>
+    <div class="hero-btns">
+      <a href="#projects" class="btn btn-gold">View Work &rarr;</a>
+      <a href="#contact" class="btn btn-outline">Hire Me</a>
+      <a href="#" class="btn btn-muted" onclick="downloadCV(event)">&darr; Download CV</a>
+    </div>
+  </div>
+  <div class="hero-r">
+    <img src="images/Portfolio image.jpeg" alt="Richard Anthony">
+    <div class="hero-r-fade"></div>
+    <div class="hero-stats">
+      <div class="hstat"><div class="hstat-n">6+</div><div class="hstat-l">Projects</div></div>
+      <div class="hstat"><div class="hstat-n">4</div><div class="hstat-l">Skills</div></div>
+      <div class="hstat"><div class="hstat-n">100%</div><div class="hstat-l">Passion</div></div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- ABOUT -->
+<section class="sec" id="about">
+  <p class="sec-title">About Me</p>
+  <div class="about-grid">
+    <div>
+      <h2 class="about-h2">Crafting the web,<br/><em>one line at a time.</em></h2>
+      <p class="about-p">I'm Richard Anthony, a passionate frontend web developer focused on building clean, responsive, and user-friendly websites that deliver real results for real people.</p>
+      <p class="about-p">From landing pages to full web applications, I bring ideas to life using modern web technologies &mdash; always with performance and user experience at the forefront.</p>
+      <a href="https://github.com/anthonytech05" target="_blank" class="about-link">Visit GitHub Profile &rarr;</a>
+    </div>
+    <div class="stats-grid">
+      <div class="stat-box"><div class="stat-n" data-count="6">0</div><div class="stat-l">Projects Built</div></div>
+      <div class="stat-box"><div class="stat-n" data-count="4">0</div><div class="stat-l">Core Skills</div></div>
+      <div class="stat-box"><div class="stat-n">100%</div><div class="stat-l">Passion Driven</div></div>
+      <div class="stat-box"><div class="stat-n">&infin;</div><div class="stat-l">Always Learning</div></div>
+    </div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- SKILLS -->
+<section class="sec sec-dark" id="skills">
+  <p class="sec-title">Core Skills</p>
+  <div class="skills-grid">
+    <div class="skill-card"><div class="skill-ico">&#127760;</div><div class="skill-name">HTML5</div><div class="skill-desc">Semantic, accessible markup forming the solid backbone of every great project.</div></div>
+    <div class="skill-card"><div class="skill-ico">&#127912;</div><div class="skill-name">CSS3</div><div class="skill-desc">Responsive layouts, fluid animations and modern visual design that delights users.</div></div>
+    <div class="skill-card"><div class="skill-ico">&#9889;</div><div class="skill-name">JavaScript</div><div class="skill-desc">Dynamic, interactive functionality that brings static interfaces to life.</div></div>
+    <div class="skill-card"><div class="skill-ico">&#127313;&#65039;</div><div class="skill-name">Bootstrap</div><div class="skill-desc">Rapid, mobile-first UI development with customized Bootstrap components.</div></div>
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- PROJECTS -->
+<section class="sec" id="projects">
+  <p class="sec-title">Selected Work</p>
+  <div class="proj-grid">
+
+    <a href="https://anthonysmartbankproject.netlify.app/"  target="_blank" class="proj-card">
+      <div class="proj-thumb"><img src="images/Queue website image.png" alt="Smart Queue"/><div class="proj-over"><span>View Project &rarr;</span></div></div>
+      <div class="proj-body">
+        <span class="proj-num">01</span>
+        <h3 class="proj-title">Smart Queue Management System</h3>
+        <p class="proj-desc">A digital banking and queue system for handling customer appointments and financial services efficiently.</p>
+        <div class="proj-foot"><div class="proj-tags"><span class="proj-tag">HTML</span><span class="proj-tag">CSS</span><span class="proj-tag">JavaScript</span></div><span class="proj-arr">&rarr;</span></div>
+      </div>
+    </a>
+
+    <a href="https://avencoproject.netlify.app/" target="_blank" class="proj-card">
+      <div class="proj-thumb"><img src="images/Avenco image.png" alt="Avenco"/><div class="proj-over"><span>View Project &rarr;</span></div></div>
+      <div class="proj-body">
+        <span class="proj-num">02</span>
+        <h3 class="proj-title">Avenco E-Commerce Website</h3>
+        <p class="proj-desc">A fully responsive premium fashion e-commerce platform with product listings and modern shopping UI.</p>
+        <div class="proj-foot"><div class="proj-tags"><span class="proj-tag">HTML</span><span class="proj-tag">CSS</span></div><span class="proj-arr">&rarr;</span></div>
+      </div>
+    </a>
+
+   <a href="https://renegduoproject.netlify.app/" target="_blank" class="proj-card">
+      <div class="proj-thumb"><img src="images/Renegduo image.png" alt="Renegduo"/><div class="proj-over"><span>View Project &rarr;</span></div></div>
+      <div class="proj-body">
+        <span class="proj-num">03</span>
+        <h3 class="proj-title">Renegduo</h3>
+        <p class="proj-desc">A medical services website with clean, professional interface and personalised care resources.</p>
+        <div class="proj-foot"><div class="proj-tags"><span class="proj-tag">HTML</span><span class="proj-tag">CSS</span></div><span class="proj-arr">&rarr;</span></div>
+      </div>
+    </a>
+
+    <a href="https://schoolproject5.netlify.app/" target="_blank" class="proj-card">
+      <div class="proj-thumb"><img src="images/School image.png" alt="School Website"/><div class="proj-over"><span>View Project &rarr;</span></div></div>
+      <div class="proj-body">
+        <span class="proj-num">04</span>
+        <h3 class="proj-title">School Website</h3>
+        <p class="proj-desc">A professional university website with program listings, admissions info and clean navigation.</p>
+        <div class="proj-foot"><div class="proj-tags"><span class="proj-tag">HTML</span><span class="proj-tag">CSS</span></div><span class="proj-arr">&rarr;</span></div>
+      </div>
+    </a>
+
+    <a href="https://anthonyinsureproject.netlify.app/" target="_blank" class="proj-card">
+      <div class="proj-thumb"><img src="images/insure image.png" alt="Insure"/><div class="proj-over"><span>View Project &rarr;</span></div></div>
+      <div class="proj-body">
+        <span class="proj-num">05</span>
+        <h3 class="proj-title">Insure Landing Page</h3>
+        <p class="proj-desc">A modern insurance company landing page with compelling copy and smooth user experience.</p>
+        <div class="proj-foot"><div class="proj-tags"><span class="proj-tag">HTML</span><span class="proj-tag">CSS</span></div><span class="proj-arr">&rarr;</span></div>
+      </div>
+    </a>
+
+    <a href="https://digitalbankingproject.netlify.app/" target="_blank" class="proj-card">
+      <div class="proj-thumb"><img src="images/Digital image.png" alt="Digital Banking"/><div class="proj-over"><span>View Project &rarr;</span></div></div>
+      <div class="proj-body">
+        <span class="proj-num">06</span>
+        <h3 class="proj-title">Digital Banking</h3>
+        <p class="proj-desc">A next-generation digital banking website with sleek UI, mobile mockups and fintech aesthetics.</p>
+        <div class="proj-foot"><div class="proj-tags"><span class="proj-tag">HTML</span><span class="proj-tag">CSS</span></div><span class="proj-arr">&rarr;</span></div>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<hr class="divider"/>
+
+<!-- CONTACT -->
+<section class="sec sec-dark" id="contact">
+  <p class="sec-title">Get In Touch</p>
+  <div class="contact-grid">
+    <div>
+      <h2 class="contact-h2">Let's work<br/><em>together.</em></h2>
+      <p class="contact-sub">Have a project in mind or just want to connect? I'm always open to new opportunities and collaborations.</p>
+      <div class="c-links">
+        <a href="mailto:richardchidi880@gmail.com" class="c-link"><div class="c-ico">@</div>richardchidi880@gmail.com</a>
+        <a href="https://github.com/anthonytech05" target="_blank" class="c-link"><div class="c-ico">&#9001;</div>github.com/anthonytech05</a>
+        <a href="#" class="c-link" onclick="downloadCV(event)"><div class="c-ico">&darr;</div>Download My CV</a>
+      </div>
+    </div>
+    <div>
+      <form class="cf" onsubmit="handleForm(event)">
+        <div class="cf-row">
+          <div class="cf-f"><label class="cf-label">Name</label><input class="cf-input" type="text" placeholder="Your name" required/></div>
+          <div class="cf-f"><label class="cf-label">Email</label><input class="cf-input" type="email" placeholder="your@email.com" required/></div>
+        </div>
+        <div class="cf-f"><label class="cf-label">Message</label><textarea class="cf-ta" placeholder="Tell me about your project..."></textarea></div>
+        <button type="submit" class="btn btn-gold" id="cfBtn">Send Message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p class="foot-copy">&copy; <span id="yr"></span> Richard Anthony. All rights reserved.</p>
+  <div class="foot-links">
+    <a href="https://github.com/anthonytech05" target="_blank">GitHub</a>
+    <a href="#about">About</a>
+    <a href="#projects">Work</a>
+    <a href="#contact">Contact</a>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
