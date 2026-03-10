@@ -336,9 +336,43 @@ footer{
 @media(max-width:900px){
   body{cursor:auto;}
   #cur,#cur-ring{display:none;}
+
+  /* ── PROJECT CARDS: fully clickable on touch devices ── */
+  .proj-card{
+    cursor:pointer;
+    -webkit-tap-highlight-color:rgba(200,169,110,.15);
+    touch-action:manipulation;
+  }
+  .proj-card:active{
+    opacity:.88;
+    transform:scale(.99);
+  }
+  /* Always show the overlay and arrow on mobile — no hover needed */
+  .proj-over{
+    opacity:1;
+    background:rgba(0,0,0,.3);
+  }
+  .proj-over span{
+    transform:translateY(0);
+    font-size:12px;
+    padding:8px 16px;
+    background:rgba(200,169,110,.85);
+    border-radius:2px;
+    color:#fff;
+    letter-spacing:2px;
+  }
+  .proj-arr{
+    opacity:1;
+    transform:translateX(0);
+  }
+  /* Make sure nothing blocks the tap */
+  .proj-thumb img{pointer-events:none;}
+  .proj-over{pointer-events:none;}
+
   nav{padding:18px 20px;}
   .nav-menu{display:none;}
   .toggle-label{display:none;}
+  .toggle-btn{cursor:pointer;}
   .hero{grid-template-columns:1fr;min-height:auto;}
   .hero-l{padding:110px 20px 44px;}
   .hero-h1{font-size:clamp(50px,12vw,76px);letter-spacing:-2px;}
@@ -355,6 +389,7 @@ footer{
   .skills-grid{grid-template-columns:1fr 1fr;}
   .proj-grid{grid-template-columns:1fr;}
   .cf-row{grid-template-columns:1fr;}
+  .btn{cursor:pointer;}
   footer{flex-direction:column;gap:14px;text-align:center;padding:24px 20px;}
   .foot-links{flex-wrap:wrap;justify-content:center;}
 }
