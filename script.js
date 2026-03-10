@@ -1,7 +1,7 @@
-// Year
+// ── YEAR ──
 document.getElementById("yr").textContent = new Date().getFullYear();
 
-// Theme
+// ── THEME ──
 function toggleTheme(){
   var html = document.documentElement;
   var isDark = html.getAttribute("data-theme") === "dark";
@@ -15,87 +15,86 @@ function toggleTheme(){
   document.getElementById("themeLabel").textContent = saved === "dark" ? "Dark" : "Light";
 })();
 
-// Cursor
-var cur = document.getElementById("cur");
+// ── CURSOR ──
+var cur  = document.getElementById("cur");
 var ring = document.getElementById("cur-ring");
 var mx = 0, my = 0, rx = 0, ry = 0;
+var cursorMoved = false;
 
 document.addEventListener("mousemove", function(e){
-  mx = e.clientX; my = e.clientY;
+  mx = e.clientX;
+  my = e.clientY;
+
+  // Show cursor only after first mouse move
+  if(!cursorMoved){
+    cursorMoved = true;
+    cur.style.opacity  = "1";
+    ring.style.opacity = "1";
+  }
+
   cur.style.left = mx + "px";
   cur.style.top  = my + "px";
 });
 
-function loopRing(){
+// Ring animation loop
+(function loop(){
   rx += (mx - rx) * 0.12;
   ry += (my - ry) * 0.12;
   ring.style.left = rx + "px";
   ring.style.top  = ry + "px";
-  requestAnimationFrame(loopRing);
-}
-loopRing();
+  requestAnimationFrame(loop);
+})();
 
+// Hover effect on clickable elements
 document.querySelectorAll("a, button, .proj-card, .skill-card, .stat-box, input, textarea").forEach(function(el){
   el.addEventListener("mouseenter", function(){
-    cur.style.width  = "20px";
-    cur.style.height = "20px";
+    cur.style.width      = "22px";
+    cur.style.height     = "22px";
     cur.style.background = "transparent";
-    cur.style.border = "2px solid var(--accent)";
-    ring.style.width  = "50px";
-    ring.style.height = "50px";
+    cur.style.border     = "2px solid var(--accent)";
+    ring.style.width     = "52px";
+    ring.style.height    = "52px";
   });
   el.addEventListener("mouseleave", function(){
-    cur.style.width  = "10px";
-    cur.style.height = "10px";
+    cur.style.width      = "10px";
+    cur.style.height     = "10px";
     cur.style.background = "var(--accent)";
-    cur.style.border = "none";
-    ring.style.width  = "38px";
-    ring.style.height = "38px";
+    cur.style.border     = "none";
+    ring.style.width     = "38px";
+    ring.style.height    = "38px";
   });
 });
 
-// Nav scroll
+// ── NAV SCROLL ──
 window.addEventListener("scroll", function(){
-  document.getElementById("mainNav").classList.toggle("stuck", window.scrollY > 50);
+  var nav = document.getElementById("mainNav");
+  if(nav) nav.classList.toggle("stuck", window.scrollY > 50);
 });
 
-// Count-up
+// ── COUNT UP ──
 document.querySelectorAll(".stat-n[data-count]").forEach(function(el){
   var target = parseInt(el.dataset.count);
+  var done = false;
   var ob = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(e.isIntersecting){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting && !done){
+        done = true;
         var start = null;
         function step(ts){
           if(!start) start = ts;
           var p = Math.min((ts - start) / 1400, 1);
-          el.textContent = Math.floor((1 - Math.pow(1 - p, 3)) * target) + "+";
+          el.textContent = Math.floor((1 - Math.pow(1-p, 3)) * target) + "+";
           if(p < 1) requestAnimationFrame(step);
         }
         requestAnimationFrame(step);
         ob.unobserve(el);
       }
     });
-  }, {threshold: 0.6});
+  }, {threshold: 0.5});
   ob.observe(el);
 });
 
-// Contact form
-function handleForm(e){
-  e.preventDefault();
-  var btn = document.getElementById("cfBtn");
-  btn.textContent = "Sent!";
-  btn.style.background = "#2a9d5c";
-  btn.style.borderColor = "#2a9d5c";
-  setTimeout(function(){
-    btn.textContent = "Send Message";
-    btn.style.background = "";
-    btn.style.borderColor = "";
-    e.target.reset();
-  }, 3000);
-}
-
-// CV download
+// ── CV DOWNLOAD ──
 function downloadCV(e){
   e.preventDefault();
   var cv = "RICHARD ANTHONY — FRONTEND WEB DEVELOPER\n"
@@ -111,20 +110,24 @@ function downloadCV(e){
     + "Git          — Version control & collaboration\n\n"
     + "PROJECTS\n--------\n"
     + "01. Smart Queue Management System\n    anthonysmartbankproject.netlify.app\n\n"
-    + "02. Avenco E-Commerce Website\n    avenco.vercel.app\n\n"
+    + "02. Avenco E-Commerce Website\n    avencoproject.netlify.app\n\n"
     + "03. Renegduo\n    renegduoproject.netlify.app\n\n"
-    + "04. School Website\n    schoolwebsiteproject-alpha.vercel.app\n\n"
-    + "05. Insure Landing Page\n    anthonytech05.github.io/Insure-landing-page-project\n\n"
-    + "06. Digital Banking\n    anthonytech05.github.io/Digital-banking-project\n\n"
+    + "04. School Website\n    schoolproject5.netlify.app\n\n"
+    + "05. Insure Landing Page\n    anthonyinsureproject.netlify.app\n\n"
+    + "06. Digital Banking\n    digitalbankingproject.netlify.app\n\n"
     + "EDUCATION\n---------\n"
     + "Cophild ICT Centre — Frontend Web Development\n\n"
     + "ABOUT\n-----\n"
     + "Passionate frontend developer trained at Cophild ICT Centre.\n"
     + "Building clean, responsive, and purposeful websites.\n"
     + "Available for freelance and full-time roles.";
-  var blob = new Blob([cv], {type: "text/plain"});
-  var url = URL.createObjectURL(blob);
-  var a = document.createElement("a");
-  a.href = url; a.download = "Richard_Anthony_CV.txt";
-  a.click(); URL.revokeObjectURL(url);
+  var blob = new Blob([cv], {type:"text/plain"});
+  var url  = URL.createObjectURL(blob);
+  var a    = document.createElement("a");
+  a.href = url;
+  a.download = "Richard_Anthony_CV.txt";
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
 }
